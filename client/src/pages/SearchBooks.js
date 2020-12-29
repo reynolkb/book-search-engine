@@ -96,11 +96,12 @@ const SearchBooks = () => {
 
 			const { data } = await saveBook({
 				variables: {
-					bookId: { ...searchedBooks },
+					bookId: { ...bookToSave },
 				},
 			});
 
 			setSavedBookIds([...savedBookIds, bookToSave.bookId]);
+			console.log(data);
 		} catch (err) {
 			console.error(err);
 		}
