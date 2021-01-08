@@ -96,7 +96,10 @@ const SearchBooks = () => {
 
 			const { data } = await saveBook({
 				variables: {
-					bookId: { ...bookToSave },
+					...bookToSave,
+					// bookId: bookToSave.bookId,
+					// title: bookToSave.title,
+					// description: bookToSave.description,
 				},
 			});
 
