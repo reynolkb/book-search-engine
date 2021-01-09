@@ -202,7 +202,8 @@ const SearchBooks = () => {
 											className='btn-block btn-info'
 											onClick={() =>
 												handleSaveBook(
-													book.bookId
+													book.bookId,
+													book.authors
 												)
 											}>
 											{savedBookIds?.some(
