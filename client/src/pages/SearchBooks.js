@@ -102,7 +102,6 @@ const SearchBooks = () => {
 					// description: bookToSave.description,
 				},
 			});
-
 			setSavedBookIds([...savedBookIds, bookToSave.bookId]);
 			console.log(data);
 		} catch (err) {
