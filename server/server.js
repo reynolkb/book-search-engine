@@ -22,6 +22,26 @@
 // 	);
 // });
 
+// ----------------- askBCS -------------------------
+// import connect from 'connect';
+// import bodyParser from 'body-parser';
+// import { graphqlConnect } from 'apollo-server-express';
+// import http from 'http';
+
+// const PORT = 3000;
+
+// const app = connect();
+
+// // bodyParser is needed just for POST.
+// app.use('/graphql', bodyParser.json());
+// app.use('/graphql', graphqlConnect({ schema: myGraphQLSchema }));
+
+// http.createServer(app).listen(PORT);
+
+// // bodyParser is needed just for POST.
+// app.use('/graphql', bodyParser.json());
+// app.use('/graphql', graphqlConnect({ schema: myGraphQLSchema }));
+
 const express = require('express');
 // import ApolloServer
 const { ApolloServer } = require('apollo-server-express');
