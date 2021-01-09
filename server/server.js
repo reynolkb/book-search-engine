@@ -22,38 +22,20 @@
 // 	);
 // });
 
-// ----------------- askBCS -------------------------
-// import connect from 'connect';
-// import bodyParser from 'body-parser';
-// import { graphqlConnect } from 'apollo-server-express';
-// import http from 'http';
-
-// const PORT = 3000;
-
-// const app = connect();
-
-// // bodyParser is needed just for POST.
-// app.use('/graphql', bodyParser.json());
-// app.use('/graphql', graphqlConnect({ schema: myGraphQLSchema }));
-
-// http.createServer(app).listen(PORT);
-
-// // bodyParser is needed just for POST.
-// app.use('/graphql', bodyParser.json());
-// app.use('/graphql', graphqlConnect({ schema: myGraphQLSchema }));
-
 const express = require('express');
 // import ApolloServer
 const { ApolloServer } = require('apollo-server-express');
 
 // import our typeDefs and resolvers
 const { typeDefs, resolvers } = require('./schemas');
+const { authMiddleware } = require('./utils/auth');
 const db = require('./config/connection');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
 // create a new Apollo server and pass in our schema data
 const server = new ApolloServer({
+	context: authMiddleware,
 	typeDefs,
 	resolvers,
 });

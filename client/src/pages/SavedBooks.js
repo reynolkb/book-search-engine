@@ -100,13 +100,13 @@ const SavedBooks = () => {
 			<Container>
 				<h2>
 					{userData.data &&
-					userData.data.savedBooks.length
+					userData.data.me.savedBooks?.length
 						? `Viewing ${
-								userData
+								userData.data.me
 									.savedBooks
 									.length
 						  } saved ${
-								userData
+								userData.data.me
 									.savedBooks
 									.length ===
 								1
@@ -117,7 +117,7 @@ const SavedBooks = () => {
 				</h2>
 				<CardColumns>
 					{userData.data &&
-						userData.data.savedBooks.map(
+						userData.data.me.savedBooks.map(
 							(book) => {
 								return (
 									<Card
