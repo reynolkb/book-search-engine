@@ -67,7 +67,7 @@ const resolvers = {
 
 				delete deleteBook;
 
-				return savedBooks;
+				return deleteBook;
 			}
 		},
 	},
