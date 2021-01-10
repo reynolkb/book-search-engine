@@ -93,8 +93,8 @@ const SearchBooks = () => {
 					bookId: bookToSave.bookId,
 					title: bookToSave.title,
 					description: bookToSave.description,
-					image: bookToSave.image,
-					authors: bookToSave.authors,
+					// image: bookToSave.image,
+					// authors: bookToSave.authors,
 				},
 			});
 			setSavedBookIds([...savedBookIds, bookToSave.bookId]);
