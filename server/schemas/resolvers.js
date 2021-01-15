@@ -3,6 +3,7 @@ const { User, Book } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
+	// me query
 	Query: {
 		me: async (parent, args, context) => {
 			if (context.user) {
@@ -17,13 +18,16 @@ const resolvers = {
 		},
 	},
 
+	// mutations for functions
 	Mutation: {
+		// adding a new user
 		addUser: async (parent, args) => {
 			const user = await User.create(args);
 			const token = signToken(user);
 
 			return { token, user };
 		},
+		// login
 		login: async (parent, { email, password }) => {
 			const user = await User.findOne({ email });
 
@@ -46,6 +50,7 @@ const resolvers = {
 			const token = signToken(user);
 			return { token, user };
 		},
+		// saving a book
 		saveBook: async (parent, bookData, context) => {
 			if (context.user) {
 				const updatedUser = await User.findOneAndUpdate(
@@ -57,6 +62,7 @@ const resolvers = {
 				return updatedUser;
 			}
 		},
+		// deleting a book
 		removeBook: async (parent, { bookId }, context) => {
 			if (context.user) {
 				const deleteBook = await User.findOneAndUpdate(
